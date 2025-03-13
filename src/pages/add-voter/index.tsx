@@ -229,14 +229,14 @@ function AddVoter() {
                 name='state'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className='text-gray-200'>State</FormLabel>
+                    <FormLabel className='text-gray-200'>Branch</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
                       <FormControl>
                         <SelectTrigger className='border-white/20 bg-white/10 text-white focus:border-violet-400 focus:ring-violet-400'>
-                          <SelectValue placeholder='Select a state' />
+                          <SelectValue placeholder='Select a branch' />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>

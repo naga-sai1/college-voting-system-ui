@@ -206,7 +206,7 @@ const formSchema = z.object({
                     >
                       <FormControl>
                         <SelectTrigger className='border-white/20 bg-white/10 text-white focus:border-violet-400 focus:ring-violet-400'>
-                          <SelectValue placeholder='Select a state' />
+                          <SelectValue placeholder='Select a branch' />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>

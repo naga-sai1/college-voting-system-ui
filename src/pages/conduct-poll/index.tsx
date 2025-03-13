@@ -180,7 +180,7 @@ export default function ConductPoll() {
           >
             <ShieldCheck className='h-8 w-8 text-violet-400' />
             <span className='text-2xl font-semibold text-white'>
-              Conduct State Poll
+              Conduct Branch Poll
             </span>
           </motion.div>
 
@@ -263,7 +263,7 @@ export default function ConductPoll() {
                 name='state_id'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className='text-gray-200'>State</FormLabel>
+                    <FormLabel className='text-gray-200'>Branch</FormLabel>
                     <FormControl>
                       <Select
                         onValueChange={(value) => {
@@ -273,7 +273,7 @@ export default function ConductPoll() {
                         value={field.value}
                       >
                         <SelectTrigger className='border-white/20 bg-white/10 text-white'>
-                          <SelectValue placeholder='Select a state'>
+                          <SelectValue placeholder='Select a Branch'>
                             {
                               states.find(
                                 (state) => state.id.toString() === field.value
