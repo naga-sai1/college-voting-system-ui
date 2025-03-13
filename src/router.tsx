@@ -98,6 +98,12 @@ const router = createBrowserRouter([
       Component: (await import('./pages/add-voter/index.tsx')).default,
     }),
   },
+  {
+    path: '/create-branch',
+    lazy: async () => ({
+      Component: (await import('./pages/create-branches')).default,
+    }),
+  },
 
   // Main routes
   {

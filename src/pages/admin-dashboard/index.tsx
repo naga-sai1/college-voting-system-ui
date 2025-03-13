@@ -144,7 +144,7 @@ export default function AdminDashboard() {
       setIsResetting(true)
       await resetAllPolls()
       // Refresh the data after reset
-      const response = await partyWiseVotingCount() as VotingCountResponse
+      const response = (await partyWiseVotingCount()) as VotingCountResponse
       setVotingData(response)
       setPartyStats(response.statistics)
       setTotalVotes(response.totalVotesCast)
@@ -167,7 +167,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const fetchPartyStats = async () => {
       try {
-        const response = await partyWiseVotingCount() as VotingCountResponse
+        const response = (await partyWiseVotingCount()) as VotingCountResponse
         setVotingData(response)
         setPartyStats(response.statistics)
         setTotalVotes(response.totalVotesCast)
@@ -202,6 +202,13 @@ export default function AdminDashboard() {
               Create New Party
             </Button>
             <Button
+              onClick={() => navigate('/create-branch')}
+              className='bg-blue-500 text-white hover:bg-blue-600'
+            >
+              <Plus className='mr-2 h-4 w-4' />
+              Create Branch
+            </Button>
+            <Button
               onClick={() => navigate('/add-voter')}
               className='bg-green-600 text-white hover:bg-green-700'
             >
@@ -228,21 +235,26 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        <AlertDialog open={showResetConfirmation} onOpenChange={setShowResetConfirmation}>
+        <AlertDialog
+          open={showResetConfirmation}
+          onOpenChange={setShowResetConfirmation}
+        >
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>Reset All Polls</AlertDialogTitle>
               <AlertDialogDescription>
-                Are you sure you want to reset all polls? This action cannot be undone.
-                All voting data will be permanently deleted.
+                Are you sure you want to reset all polls? This action cannot be
+                undone. All voting data will be permanently deleted.
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel disabled={isResetting}>Cancel</AlertDialogCancel>
+              <AlertDialogCancel disabled={isResetting}>
+                Cancel
+              </AlertDialogCancel>
               <AlertDialogAction
                 onClick={handleResetPolls}
                 disabled={isResetting}
-                className="bg-red-500 text-white hover:bg-red-600"
+                className='bg-red-500 text-white hover:bg-red-600'
               >
                 {isResetting ? 'Resetting...' : 'Reset All'}
               </AlertDialogAction>
@@ -303,7 +315,7 @@ export default function AdminDashboard() {
               <TableHeader>
                 <TableRow>
                   <TableHead>Party Name</TableHead>
-                  <TableHead>State</TableHead>
+                  <TableHead>Branch</TableHead>
                   <TableHead>Votes</TableHead>
                   <TableHead>Percentage</TableHead>
                 </TableRow>

@@ -1,11 +1,10 @@
 //@ts-nocheck
 import axios from 'axios'
 
-// const baseURL = 'http://192.168.0.105:5001/'
+const baseURL = 'http://192.168.0.106:5005/'
 
 // const baseURL = 'http://localhost:5001/'
-const baseURL = 'https://apionlinevotingsystem.invtechnologies.in/'
-//
+
 const api = axios.create({
   baseURL,
   headers: {
@@ -90,6 +89,9 @@ export const getAllStates = () =>
 
 export const addVoter = (data: FormData) =>
   api.post('/add_voter', data).then((response) => response.data)
+
+export const createBranch = (data: FormData) =>
+  api.post('/create_state', data).then((response) => response.data)
 
 export const createPoll = (data: FormData) =>
   axios
